@@ -28,9 +28,8 @@ public class TimeServlet extends HttpServlet {
             Cookie tzCookie = new Cookie("timezone", timezone);
             tzCookie.setMaxAge(60 * 60 * 24 * 30);
             resp.addCookie(tzCookie);
-            timezone = tzCookie.getValue();
-        }
-        if (timezone == null || timezone.isEmpty()) {
+        }else {
+            timezone = "UTS";
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
                     if (cookie.getName().equals("timezone")) {
@@ -38,9 +37,6 @@ public class TimeServlet extends HttpServlet {
                         break;
                     }
                 }
-            }
-            else {
-                timezone = "UTC";
             }
         }
         Date date = new Date();
