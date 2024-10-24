@@ -29,7 +29,7 @@ public class TimeServlet extends HttpServlet {
             tzCookie.setMaxAge(60 * 60 * 24 * 30);
             resp.addCookie(tzCookie);
         }else {
-            timezone = "UTS";
+            timezone = "UTС";
             if (cookies != null) {
                 for (Cookie cookie : cookies) {
                     if (cookie.getName().equals("timezone")) {
